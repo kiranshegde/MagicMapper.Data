@@ -39,22 +39,13 @@ jobs:
         with:
           user: kiranshegde
 
-      - name: Publish packages
+      - name: Publish NuGet
         run: |
-          find ./artifacts -name "*.nupkg" ! -name "*.snupkg" \
-            -exec dotnet nuget push {} \
+          dotnet nuget push "./artifacts/*.nupkg" \
             --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate \;
-
-      - name: Publish symbol packages
-        run: |
-          find ./artifacts -name "*.snupkg" \
-            -exec dotnet nuget push {} \
-            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
-            --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate \;
-
+            --skip-duplicate
+            
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:

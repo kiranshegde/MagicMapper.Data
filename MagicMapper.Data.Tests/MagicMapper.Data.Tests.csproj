@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>MagicMapper.Data.Tests Class Library</Description>
     <Authors>Kiran Hegde</Authors>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <DebugType>portable</DebugType>
     <AssemblyName>MagicMapper.Data.Tests</AssemblyName>
     <PackageId>MagicMapper.Data.Tests</PackageId>

@@ -1,15 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Description>
-			IDataReader and ADO.NET mapping extensions for MagicMapper.
-			Community-maintained fork of AutoMapper.Data.
+		<Description>IDataReader and ADO.NET mapping extensions for MagicMapper.Community-maintained fork of AutoMapper.Data.
 		</Description>
 		<Company>MagicMapper Community</Company>
-		<VersionPrefix>14.0.1</VersionPrefix>
+		<VersionPrefix>14.0.2</VersionPrefix>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Authors>Kiran Hegde</Authors>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<AssemblyName>MagicMapper.Data</AssemblyName>
 		<PackageId>MagicMapper.Data</PackageId>
 		<PackageTags>MagicMapper.Data</PackageTags>

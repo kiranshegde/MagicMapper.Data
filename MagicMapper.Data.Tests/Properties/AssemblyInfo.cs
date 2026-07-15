@@ -6,11 +6,11 @@ using Xunit;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AutoMapper.Data.Tests")]
+[assembly: AssemblyTitle("MagicMapper.Data.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AutoMapper.Data.Tests")]
+[assembly: AssemblyCompany("MagicMapper Community")]
+[assembly: AssemblyProduct("MagicMapper.Data.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
