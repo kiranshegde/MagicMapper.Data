@@ -12,13 +12,12 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
+    env:
+          NUGET_CERT_REVOCATION_MODE: offline
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
@@ -34,17 +33,24 @@ jobs:
       - name: Pack
         run: dotnet pack MagicMapper.Data/MagicMapper.Data.csproj --configuration Release --no-build --output ./artifacts
 
-      - name: Publish to NuGet
-        run: dotnet nuget push "./artifacts/*.nupkg" --source https://api.nuget.org/v3/index.json
+      - name: Publish packages
+        run: |
+          find ./artifacts -name "*.nupkg" ! -name "*.snupkg" \
+            -exec dotnet nuget push {} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate \;
 
-      - name: Upload package
+      - name: Publish symbol packages
+        run: |
+          find ./artifacts -name "*.snupkg" \
+            -exec dotnet nuget push {} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate \;
+
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: nuget-package
-          path: ./artifacts
-
-      - name: Publish to NuGet
-        run: |
-          dotnet nuget push "./artifacts/*.nupkg" \
-            --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate
+          name: nuget-packages
+          path: |
+            ./artifacts/*.nupkg
+            ./artifacts/*.snupkg
