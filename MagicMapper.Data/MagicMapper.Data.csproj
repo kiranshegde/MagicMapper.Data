@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Description>ADO.NET extensions for AutoMapper</Description>
+		<Description>ADO.NET extensions for MagicMapper</Description>
 		<VersionPrefix>10.0.0</VersionPrefix>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<Authors>Jimmy Bogard</Authors>
+		<Authors>Kiran Hegde</Authors>
 		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>AutoMapper.Data</AssemblyName>
-		<PackageId>AutoMapper.Data</PackageId>
-		<PackageTags>AutoMapper</PackageTags>
-		<PackageIconUrl>https://s3.amazonaws.com/automapper/icon.png</PackageIconUrl>
-		<PackageProjectUrl>https://github.com/AutoMapper/AutoMapper.Data</PackageProjectUrl>
+		<AssemblyName>MagicMapper.Data</AssemblyName>
+		<PackageId>MagicMapper.Data</PackageId>
+		<PackageTags>MagicMapper</PackageTags>
+		<PackageIconUrl>https://s3.amazonaws.com/magicmapper/icon.png</PackageIconUrl>
+		<PackageProjectUrl>https://github.com/MagicMapper/MagicMapper.Data</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -20,13 +20,16 @@
 		<Deterministic>true</Deterministic>
 		<ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
 		<SignAssembly>true</SignAssembly>
-		<AssemblyOriginatorKeyFile>..\AutoMapper.Data.snk</AssemblyOriginatorKeyFile>
+		<AssemblyOriginatorKeyFile>..\MagicMapper.Data.snk</AssemblyOriginatorKeyFile>
 		<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="[16.0.0, )" />
 		<None Include="..\README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="MagicMapper" Version="14.0.1" />
 	</ItemGroup>
 
 </Project>

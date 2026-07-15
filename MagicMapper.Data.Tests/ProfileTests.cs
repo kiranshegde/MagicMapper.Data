@@ -13,7 +13,7 @@
         {
             MapperConfiguration configuration = new MapperConfiguration(cfg => {
                 ConfigureMapper(cfg);
-            }, new NullLoggerFactory());
+            });
 
             Mapper = new Mapper(configuration);
             DataReader = new DataBuilder().BuildDataReader();
