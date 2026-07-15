@@ -33,10 +33,17 @@ jobs:
       - name: Pack
         run: dotnet pack MagicMapper.Data/MagicMapper.Data.csproj --configuration Release --no-build --output ./artifacts
 
+      - name: NuGet Login (Trusted Publishing)
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: kiranshegde
+
       - name: Publish packages
         run: |
           find ./artifacts -name "*.nupkg" ! -name "*.snupkg" \
             -exec dotnet nuget push {} \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate \;
 
@@ -44,6 +51,7 @@ jobs:
         run: |
           find ./artifacts -name "*.snupkg" \
             -exec dotnet nuget push {} \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate \;
 

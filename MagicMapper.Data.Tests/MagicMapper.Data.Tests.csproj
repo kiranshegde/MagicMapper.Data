@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>AutoMapper.Data.Tests Class Library</Description>
+    <Description>MagicMapper.Data.Tests Class Library</Description>
     <Authors>Kiran Hegde</Authors>
     <TargetFramework>net9.0</TargetFramework>
     <DebugType>portable</DebugType>
-    <AssemblyName>AutoMapper.Data.Tests</AssemblyName>
-    <PackageId>AutoMapper.Data.Tests</PackageId>
+    <AssemblyName>MagicMapper.Data.Tests</AssemblyName>
+    <PackageId>MagicMapper.Data.Tests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
