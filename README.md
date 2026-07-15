@@ -1,11 +1,20 @@
-![AutoMapper](https://s3.amazonaws.com/automapper/logo.png)
+![MagicMapper.Data]
 ================================
 
 #### The data extensions to MagicMapper, IDataReader support
+#### This project is a community-maintained fork of AutoMapper.Data adapted to work with MagicMapper. It aims to remain API-compatible while replacing the AutoMapper dependency with MagicMapper.
 
-[![CI](https://github.com/automapper/automapper.data/workflows/CI/badge.svg)](https://github.com/AutoMapper/AutoMapper.Data/actions?query=workflow%3ACI)
-[![NuGet](http://img.shields.io/nuget/v/AutoMapper.Data.svg?label=NuGet)](https://www.nuget.org/packages/AutoMapper.Data/)
-[![MyGet (dev)](https://img.shields.io/myget/automapperdev/vpre/AutoMapper.Data.svg?label=MyGet)](https://myget.org/feed/automapperdev/package/nuget/AutoMapper.Data)
+## Installation
+
+```bash
+dotnet add package MagicMapper.Data
+```
+
+or
+
+```xml
+<PackageReference Include="MagicMapper.Data" Version="x.x.x" />
+```
 
 ##### Install via initialization:
 
@@ -17,7 +26,7 @@ var mapper = new Mapper(cfg => {
    // Other config
 });
 
-// or with the AutoMapper.Extensions.Microsoft.DependencyInjection package:
+// or with the MagicMapper dependency injection package:
 
 services.AddAutoMapper(typeof(Startup), cfg => {
 	cfg.AddDataReaderMapping();
@@ -33,3 +42,9 @@ There are several ways to configure mapping with an instance of `Profile`:
 - Create an instance of Profile, call the `Profile.AddDataRecordMember` extension method on it, and add it to the configuration.
 - Call `AddMemberConfiguration().AddMember<DataRecordMemberConfiguration>()` on the instance.
 - Call the `IMapperConfigurationExpression.AddDataReaderProfile` extension method.
+
+## Compatibility
+
+MagicMapper.Data is API-compatible with AutoMapper.Data and is intended as a drop-in replacement for applications using MagicMapper.
+
+Only the underlying mapper dependency has changed.
