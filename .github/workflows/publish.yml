@@ -42,3 +42,9 @@ jobs:
         with:
           name: nuget-package
           path: ./artifacts
+
+      - name: Publish to NuGet
+        run: |
+          dotnet nuget push "./artifacts/*.nupkg" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
