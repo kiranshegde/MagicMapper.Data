@@ -1,0 +1,44 @@
+name: Build and Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore MagicMapper.Data.sln
+
+      - name: Build
+        run: dotnet build MagicMapper.Data.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test MagicMapper.Data.sln --configuration Release --no-build
+
+      - name: Pack
+        run: dotnet pack MagicMapper.Data/MagicMapper.Data.csproj --configuration Release --no-build --output ./artifacts
+
+      - name: Publish to NuGet
+        run: dotnet nuget push "./artifacts/*.nupkg" --source https://api.nuget.org/v3/index.json
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-package
+          path: ./artifacts

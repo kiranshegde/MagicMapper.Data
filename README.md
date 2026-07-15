@@ -48,3 +48,14 @@ There are several ways to configure mapping with an instance of `Profile`:
 MagicMapper.Data is API-compatible with AutoMapper.Data and is intended as a drop-in replacement for applications using MagicMapper.
 
 Only the underlying mapper dependency has changed.
+
+## Why MagicMapper.Data?
+
+MagicMapper.Data is a community-maintained fork of AutoMapper.Data that replaces the AutoMapper dependency with MagicMapper while preserving the public API. It is intended as a drop-in replacement for applications migrating from AutoMapper to MagicMapper.
+
+## Migration from AutoMapper.Data
+
+1. Remove AutoMapper.Data.
+2. Install MagicMapper.Data.
+3. Replace the AutoMapper package with MagicMapper.
+4. No code changes are required.
